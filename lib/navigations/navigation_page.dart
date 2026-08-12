@@ -28,6 +28,11 @@ class _NavigationExampleState extends State<NavigationExample> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
+      appBar: AppBar(
+        leading: const Icon(Icons.local_hospital, color: Color(0xFF0056B3)),
+        title: const Text('MedCore'),
+        backgroundColor: const Color(0xFFFFFFFF),
+      ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
