@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'navigations/navigation_page.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,9 +10,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'MedCore Hospital',
       debugShowCheckedModeBanner: false,
-      home: NavigationPage(),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF0056B3),
+          primary: const Color(0xFF0056B3),
+        ),
+      ),
+      home: const SplashScreen(),
     );
   }
 }
