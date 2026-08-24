@@ -61,7 +61,9 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                 children: [
                   CircleAvatar(
                     radius: 24,
-                    backgroundColor: const Color(0xFF0056B3).withValues(alpha: 0.1),
+                    backgroundColor: const Color(
+                      0xFF0056B3,
+                    ).withValues(alpha: 0.1),
                     child: const Icon(
                       Icons.medical_services_outlined,
                       color: Color(0xFF0056B3),
@@ -105,7 +107,8 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                     _buildModalInfoRow(
                       icon: Icons.confirmation_number_outlined,
                       label: "Appointment ID",
-                      value: "#${appointment.id.substring(0, appointment.id.length > 8 ? 8 : appointment.id.length)}",
+                      value:
+                          "#${appointment.id.substring(0, appointment.id.length > 8 ? 8 : appointment.id.length)}",
                     ),
                     const Divider(height: 20),
                     _buildModalInfoRow(
@@ -182,8 +185,9 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
   // EDIT MODAL
   // ------------------------------------
   void _showEditModal(BuildContext context, Appointment appointment) {
-    final editPatientController =
-        TextEditingController(text: appointment.patientName);
+    final editPatientController = TextEditingController(
+      text: appointment.patientName,
+    );
     final editDateController = TextEditingController(text: appointment.date);
     final editTimeController = TextEditingController(text: appointment.time);
     String selectedEditDoctor = appointment.doctorName;
@@ -261,10 +265,8 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                           ),
                           items: doctorList
                               .map(
-                                (d) => DropdownMenuItem(
-                                  value: d,
-                                  child: Text(d),
-                                ),
+                                (d) =>
+                                    DropdownMenuItem(value: d, child: Text(d)),
                               )
                               .toList(),
                           onChanged: (val) {
@@ -301,9 +303,8 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                               });
                             }
                           },
-                          validator: (v) => v == null || v.isEmpty
-                              ? "Date required"
-                              : null,
+                          validator: (v) =>
+                              v == null || v.isEmpty ? "Date required" : null,
                         ),
                         const SizedBox(height: 16),
 
@@ -323,14 +324,14 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                             );
                             if (picked != null) {
                               setModalState(() {
-                                editTimeController.text =
-                                    picked.format(context);
+                                editTimeController.text = picked.format(
+                                  context,
+                                );
                               });
                             }
                           },
-                          validator: (v) => v == null || v.isEmpty
-                              ? "Time required"
-                              : null,
+                          validator: (v) =>
+                              v == null || v.isEmpty ? "Time required" : null,
                         ),
                         const SizedBox(height: 16),
 
@@ -374,15 +375,17 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                             onPressed: () {
                               if (editFormKey.currentState!.validate()) {
                                 final updated = appointment.copyWith(
-                                  patientName: editPatientController.text.trim(),
+                                  patientName: editPatientController.text
+                                      .trim(),
                                   doctorName: selectedEditDoctor,
                                   date: editDateController.text.trim(),
                                   time: editTimeController.text.trim(),
                                   status: selectedEditStatus,
                                 );
 
-                                AppointmentManager.instance
-                                    .updateAppointment(updated);
+                                AppointmentManager.instance.updateAppointment(
+                                  updated,
+                                );
 
                                 Navigator.pop(ctx);
 
@@ -500,11 +503,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
       ),
       child: Text(
         status,
-        style: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.bold,
-          color: fg,
-        ),
+        style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: fg),
       ),
     );
   }
@@ -518,10 +517,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
       children: [
         Icon(icon, size: 20, color: const Color(0xFF0056B3)),
         const SizedBox(width: 10),
-        Text(
-          label,
-          style: const TextStyle(fontSize: 14, color: Colors.grey),
-        ),
+        Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey)),
         const Spacer(),
         Text(
           value,
@@ -571,7 +567,10 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                   },
                   decoration: InputDecoration(
                     hintText: "Search doctor or patient...",
-                    prefixIcon: const Icon(Icons.search, color: Color(0xFF0056B3)),
+                    prefixIcon: const Icon(
+                      Icons.search,
+                      color: Color(0xFF0056B3),
+                    ),
                     suffixIcon: _searchQuery.isNotEmpty
                         ? IconButton(
                             icon: const Icon(Icons.clear),
@@ -696,9 +695,9 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                                       Row(
                                         children: [
                                           CircleAvatar(
-                                            backgroundColor:
-                                                const Color(0xFF0056B3)
-                                                    .withValues(alpha: 0.1),
+                                            backgroundColor: const Color(
+                                              0xFF0056B3,
+                                            ).withValues(alpha: 0.1),
                                             child: const Icon(
                                               Icons.medical_services_outlined,
                                               color: Color(0xFF0056B3),
@@ -715,8 +714,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                                                   appt.doctorName,
                                                   style: const TextStyle(
                                                     fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.bold,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
                                                 Text(
@@ -782,7 +780,9 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                                             ),
                                             onPressed: () =>
                                                 _showDeleteConfirmDialog(
-                                                    context, appt),
+                                                  context,
+                                                  appt,
+                                                ),
                                             tooltip: "Delete",
                                           ),
                                         ],

@@ -119,41 +119,41 @@ class Home extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: TextField(
-                      readOnly: true,
-                      onTap: () {
-                        // if (onBookAppointmentTap != null) {
-                        //   onBookAppointmentTap!();
-                        // }
-                      },
-                      decoration: InputDecoration(
-                        hintText: "Search doctor, specialty, or condition...",
-                        hintStyle: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey.shade400,
-                        ),
-                        prefixIcon: const Icon(
-                          Icons.search,
-                          color: Color(0xFF0056B3),
-                        ),
-                        suffixIcon: Container(
-                          margin: const EdgeInsets.all(6),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF0056B3),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Icon(
-                            Icons.tune,
-                            color: Colors.white,
-                            size: 18,
-                          ),
-                        ),
-                        border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 14,
-                        ),
-                      ),
-                    ),
+                    // child: TextField(
+                    //   readOnly: true,
+                    //   onTap: () {
+                    //     // if (onBookAppointmentTap != null) {
+                    //     //   onBookAppointmentTap!();
+                    //     // }
+                    //   },
+                    //   decoration: InputDecoration(
+                    //     hintText: "Search doctor, specialty, or condition...",
+                    //     hintStyle: TextStyle(
+                    //       fontSize: 14,
+                    //       color: Colors.grey.shade400,
+                    //     ),
+                    //     prefixIcon: const Icon(
+                    //       Icons.search,
+                    //       color: Color(0xFF0056B3),
+                    //     ),
+                    //     suffixIcon: Container(
+                    //       margin: const EdgeInsets.all(6),
+                    //       decoration: BoxDecoration(
+                    //         color: const Color(0xFF0056B3),
+                    //         borderRadius: BorderRadius.circular(10),
+                    //       ),
+                    //       child: const Icon(
+                    //         Icons.tune,
+                    //         color: Colors.white,
+                    //         size: 18,
+                    //       ),
+                    //     ),
+                    //     border: InputBorder.none,
+                    //     contentPadding: const EdgeInsets.symmetric(
+                    //       vertical: 14,
+                    //     ),
+                    //   ),
+                    // ),
                   ),
 
                   const SizedBox(height: 20),
